@@ -72,7 +72,7 @@ aluno123
 - Controle de reservas.
 - Comentarios e avaliacoes de livros.
 - Rankings de livros e leitores.
-- Formulario de contato.
+- Formulario de contato. 
 
 ## Diagramas
 
