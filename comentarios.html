@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Box | Avaliacoes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Literata:opsz,wght@7..72,600;7..72,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="video-fundo" aria-hidden="true"><video src="/background.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+  <header class="topo">
+    <a class="marca" href="/"><span class="marca-icone"><img src="/logo-library-box-icon.png" alt=""></span><span>Library Box</span></a>
+    <nav class="menu"><a href="/">Inicio</a><a href="/reservas.html">Reservas</a><a href="/relatorios.html">Rankings</a><a class="menu-destaque" href="/login" id="loginLink">Entrar</a></nav>
+  </header>
+
+  <main>
+    <section class="secao comentarios-secao">
+      <div class="secao-cabecalho">
+        <h2>Avaliacoes dos livros</h2>
+        <p>Escolha uma obra, veja a nota media e leia os comentarios dos leitores.</p>
+      </div>
+
+      <div class="avaliacao-painel">
+        <aside class="cartao-reserva livro-avaliacao-card">
+          <label for="livro">Livro</label>
+          <select id="livro"></select>
+          <div class="livro-avaliacao-info">
+            <span id="livroCategoria">Categoria</span>
+            <h3 id="livroTitulo">Selecione um livro</h3>
+            <p id="livroAutor">Autor</p>
+            <strong id="livroEstrelas">☆☆☆☆☆</strong>
+            <small id="livroMetricas">0 likes · 0 favoritos · 0 comentarios</small>
+          </div>
+          <div class="acoes-comentario">
+            <button class="botao secundario" id="likeBtn" type="button">Curtir</button>
+            <button class="botao secundario" id="favBtn" type="button">Favoritar</button>
+          </div>
+        </aside>
+
+        <div class="comentarios-area">
+          <div class="comentarios-topo">
+            <h3>Comentarios</h3>
+            <span id="comentariosTotal">0 registros</span>
+          </div>
+
+          <div class="reviews-lista comentarios-lista" id="comentariosLista">
+            <article><strong>Carregando...</strong><span>Aguarde um instante.</span></article>
+          </div>
+
+          <form class="cartao-reserva comentario-form-baixo" id="comentarioForm">
+            <h3>Avaliar este livro</h3>
+            <div class="comentario-form-grid">
+              <div>
+                <label for="rating">Nota</label>
+                <select id="rating">
+                  <option value="">Sem nota</option>
+                  <option value="1">1 estrela</option>
+                  <option value="2">2 estrelas</option>
+                  <option value="3">3 estrelas</option>
+                  <option value="4">4 estrelas</option>
+                  <option value="5">5 estrelas</option>
+                </select>
+              </div>
+              <div>
+                <label for="message">Comentario</label>
+                <textarea id="message" maxlength="255" placeholder="Escreva sua opiniao sobre a leitura"></textarea>
+              </div>
+            </div>
+            <button class="botao primario" type="submit">Publicar avaliacao</button>
+            <p class="mensagem" id="comentarioMensagem">Escolha um livro para avaliar.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="comentarios.js"></script>
+</body>
+</html>

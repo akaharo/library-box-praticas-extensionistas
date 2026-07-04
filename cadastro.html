@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Box | Cadastro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Literata:opsz,wght@7..72,600;7..72,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="video-fundo" aria-hidden="true"><video src="/background.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+  <header class="topo">
+    <a class="marca" href="/"><span class="marca-icone"><img src="/logo-library-box-icon.png" alt=""></span><span>Library Box</span></a>
+    <nav class="menu"><a href="/">Inicio</a><a class="menu-destaque" href="/login">Entrar</a></nav>
+  </header>
+  <main>
+    <section class="hero pagina-simples cadastro-page">
+      <div class="hero-texto">
+        <h1>Crie seu acesso de leitor</h1>
+        <p>Com cadastro, você pode reservar livros, favoritar leituras, curtir, avaliar e comentar obras do acervo.</p>
+      </div>
+      <form class="cartao-reserva cadastro-card" id="cadastroForm">
+        <h3>Cadastro</h3>
+        <label for="name">Nome</label>
+        <input id="name" maxlength="100" required>
+        <label for="email">E-mail</label>
+        <input id="email" type="email" maxlength="120" required>
+        <label for="password">Senha</label>
+        <input id="password" type="password" maxlength="60" required>
+        <button class="botao primario" type="submit">Cadastrar</button>
+        <p class="mensagem" id="cadastroMensagem">Preencha os dados para criar sua conta.</p>
+      </form>
+    </section>
+  </main>
+  <script src="cadastro.js"></script>
+</body>
+</html>

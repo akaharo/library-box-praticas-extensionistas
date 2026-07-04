@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Box | Painel do acervo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Literata:opsz,wght@7..72,600;7..72,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/painel/styles.css">
+</head>
+<body>
+  <div class="video-fundo" aria-hidden="true">
+    <video src="/background.mp4" autoplay muted loop playsinline preload="metadata"></video>
+  </div>
+
+  <header class="topo">
+    <a class="marca" href="/">
+      <span class="marca-icone"><img src="/logo-library-box-icon.png" alt=""></span>
+      <span>Library Box</span>
+    </a>
+    <div class="sessao">
+      <a class="atalho-principal" href="/">Inicio</a>
+      <span id="statusBanco">Verificando MySQL</span>
+      <button class="botao pequeno escondido" type="button" id="logoutBtn">Sair</button>
+    </div>
+  </header>
+
+  <main class="app">
+    <section class="login-view" id="loginView">
+      <div class="login-copy">
+        <h1>Library Box</h1>
+        <p>
+          A biblioteca digital centraliza acervo, leitores, avisos, emprestimos
+          e consultas em uma interface simples para a comunidade escolar.
+        </p>
+      </div>
+
+      <form class="cartao login-card" id="loginForm">
+        <p class="rotulo">Painel Library Box</p>
+        <h2>Entrar no painel</h2>
+        <label for="loginEmail">E-mail</label>
+        <input id="loginEmail" type="email" required>
+        <label for="loginPassword">Senha</label>
+        <input id="loginPassword" type="password" required>
+        <button class="botao primario" type="submit">Entrar</button>
+        <a class="link-form" href="/cadastro.html">Criar cadastro de leitor</a>
+        <p class="mensagem" id="loginMensagem" aria-live="polite">Informe seu acesso para continuar.</p>
+      </form>
+    </section>
+
+    <section class="dashboard escondido" id="dashboardView">
+      <div class="boas-vindas">
+        <div>
+          <p class="rotulo" id="perfilRotulo">Painel</p>
+          <h1 id="dashboardTitulo">Acervo</h1>
+          <p id="dashboardDescricao">Gerencie a biblioteca escolar.</p>
+        </div>
+        <div class="status-card">
+          <span class="status-dot online"></span>
+          <div>
+            <strong id="usuarioNome">Usuario</strong>
+            <p id="usuarioEmail">email</p>
+          </div>
+        </div>
+      </div>
+
+      <nav class="abas" id="adminTabs">
+        <button class="ativo" type="button" data-tab="booksPanel">Livros</button>
+        <button type="button" data-tab="usersPanel">Usuarios</button>
+        <button type="button" data-tab="feedPanel">Feed</button>
+        <button type="button" data-tab="reservationsPanel">Reservas</button>
+        <button type="button" data-tab="commentsPanel">Comentarios</button>
+        <button type="button" data-tab="contactPanel">Contato</button>
+      </nav>
+
+      <section class="usuario-home escondido" id="readerPanel">
+        <div class="feed-leitor">
+          <div class="secao-cabecalho">
+            <h2>Mural da biblioteca</h2>
+            <p>Recados publicados pelo administrador.</p>
+          </div>
+          <div class="notas-mural" id="readerFeed"></div>
+        </div>
+        <div>
+          <div class="secao-cabecalho">
+            <h2>Acervo disponivel</h2>
+            <p>Escolha uma obra para solicitar reserva.</p>
+          </div>
+          <div class="grade-livros" id="readerBooks"></div>
+        </div>
+      </section>
+
+      <section class="painel-admin" id="adminPanel">
+        <div class="painel tab-panel" id="booksPanel">
+          <form class="cartao formulario" id="bookForm">
+            <input type="hidden" id="bookId">
+            <div class="form-topo">
+              <div>
+                <h2 id="bookFormTitulo">Cadastrar livro</h2>
+                <p>Controle o acervo exibido aos alunos.</p>
+              </div>
+              <button class="botao fantasma" type="button" id="limparBookBtn">Limpar</button>
+            </div>
+            <label for="title">Titulo</label>
+            <input id="title" maxlength="100" placeholder="Casa de Vento" required>
+            <label for="author">Autor</label>
+            <input id="author" maxlength="100" placeholder="Marina Duarte" required>
+            <div class="duas-colunas">
+              <div>
+                <label for="category">Categoria</label>
+                <input id="category" maxlength="50" placeholder="Literatura" required>
+              </div>
+              <div>
+                <label for="bookStatus">Situacao</label>
+                <select id="bookStatus" required>
+                  <option value="Disponivel">Disponivel</option>
+                  <option value="Reservado">Reservado</option>
+                  <option value="Emprestado">Emprestado</option>
+                </select>
+              </div>
+            </div>
+            <button class="botao primario" type="submit" id="salvarBookBtn">Salvar livro</button>
+            <p class="mensagem" id="bookMensagem">Pronto para cadastrar um novo livro.</p>
+          </form>
+
+          <section class="cartao lista">
+            <div class="lista-topo">
+              <div>
+                <h2>Livros cadastrados</h2>
+                <p id="booksContador">0 registros</p>
+              </div>
+              <button class="botao secundario" type="button" id="atualizarBooksBtn">Atualizar</button>
+            </div>
+            <div class="tabela-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Autor</th>
+                    <th>Categoria</th>
+                    <th>Situacao</th>
+                    <th>Acoes</th>
+                  </tr>
+                </thead>
+                <tbody id="booksTabela"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <div class="painel tab-panel escondido" id="usersPanel">
+          <form class="cartao formulario" id="userForm">
+            <input type="hidden" id="userId">
+            <div class="form-topo">
+              <div>
+                <h2 id="userFormTitulo">Cadastrar usuario</h2>
+                <p>Crie acessos de aluno ou administrador.</p>
+              </div>
+              <button class="botao fantasma" type="button" id="limparUserBtn">Limpar</button>
+            </div>
+            <label for="userName">Nome</label>
+            <input id="userName" maxlength="100" placeholder="Nome do aluno" required>
+            <label for="userEmail">E-mail</label>
+            <input id="userEmail" type="email" maxlength="120" placeholder="aluno@email.com" required>
+            <label for="userPassword">Senha</label>
+            <input id="userPassword" maxlength="60" placeholder="senha123" required>
+            <div class="duas-colunas">
+              <div>
+                <label for="userRole">Perfil</label>
+                <select id="userRole">
+                  <option value="usuario">Usuario</option>
+                  <option value="admin">Administrador</option>
+                </select>
+              </div>
+              <div>
+                <label for="userStatus">Status</label>
+                <select id="userStatus">
+                  <option value="Ativo">Ativo</option>
+                  <option value="Bloqueado">Bloqueado</option>
+                </select>
+              </div>
+            </div>
+            <button class="botao primario" type="submit" id="salvarUserBtn">Salvar usuario</button>
+            <p class="mensagem" id="userMensagem">Pronto para cadastrar um usuario.</p>
+          </form>
+
+          <section class="cartao lista">
+            <div class="lista-topo">
+              <div>
+                <h2>Usuarios</h2>
+                <p id="usersContador">0 registros</p>
+              </div>
+            </div>
+            <div class="tabela-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Perfil</th>
+                    <th>Status</th>
+                    <th>Acoes</th>
+                  </tr>
+                </thead>
+                <tbody id="usersTabela"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <div class="painel tab-panel escondido" id="feedPanel">
+          <form class="cartao formulario" id="feedForm">
+            <input type="hidden" id="postId">
+            <div class="form-topo">
+              <div>
+                <h2 id="feedFormTitulo">Publicar aviso</h2>
+                <p>Atualize o mural que aparece para os leitores.</p>
+              </div>
+              <button class="botao fantasma" type="button" id="limparFeedBtn">Limpar</button>
+            </div>
+            <label for="postTitle">Titulo</label>
+            <input id="postTitle" maxlength="100" placeholder="Roda de leitura" required>
+            <label for="postType">Tipo</label>
+            <input id="postType" maxlength="40" placeholder="Aviso" required>
+            <label for="postMessage">Mensagem</label>
+            <textarea id="postMessage" maxlength="255" placeholder="Escreva o recado do mural..." required></textarea>
+            <button class="botao primario" type="submit" id="salvarFeedBtn">Salvar aviso</button>
+            <p class="mensagem" id="feedMensagem">Pronto para publicar no feed.</p>
+          </form>
+
+          <section class="cartao lista">
+            <div class="lista-topo">
+              <div>
+                <h2>Feed publicado</h2>
+                <p id="feedContador">0 registros</p>
+              </div>
+            </div>
+            <div class="feed-lista" id="feedLista"></div>
+          </section>
+        </div>
+
+        <div class="tab-panel escondido" id="reservationsPanel">
+          <section class="cartao lista reserva-lista">
+            <div class="lista-topo">
+              <div>
+                <h2>Solicitacoes de reserva</h2>
+                <p>Pedidos feitos pelos usuarios.</p>
+              </div>
+              <button class="botao secundario" type="button" id="atualizarReservasBtn">Atualizar</button>
+            </div>
+            <div class="tabela-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Usuario</th>
+                    <th>Livro</th>
+                    <th>Status</th>
+                    <th>Data</th>
+                    <th>Acoes</th>
+                  </tr>
+                </thead>
+                <tbody id="reservasTabela"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <div class="tab-panel escondido" id="commentsPanel">
+          <section class="cartao lista reserva-lista">
+            <div class="lista-topo">
+              <div>
+                <h2>Comentarios dos livros</h2>
+                <p>Avaliacoes publicadas pelos usuarios.</p>
+              </div>
+              <button class="botao secundario" type="button" id="atualizarComentariosBtn">Atualizar</button>
+            </div>
+            <div class="tabela-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Livro</th>
+                    <th>Usuario</th>
+                    <th>Avaliacao</th>
+                    <th>Comentario</th>
+                    <th>Data</th>
+                    <th>Acoes</th>
+                  </tr>
+                </thead>
+                <tbody id="comentariosTabela"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <div class="tab-panel escondido" id="contactPanel">
+          <section class="cartao lista reserva-lista">
+            <div class="lista-topo">
+              <div>
+                <h2>Mensagens recebidas</h2>
+                <p>Contatos enviados pelo formulario publico.</p>
+              </div>
+              <button class="botao secundario" type="button" id="atualizarContatosBtn">Atualizar</button>
+            </div>
+            <div class="feed-lista" id="contatosLista"></div>
+          </section>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="/painel/app.js"></script>
+</body>
+</html>

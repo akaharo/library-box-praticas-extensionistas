@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Box | Rankings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Literata:opsz,wght@7..72,600;7..72,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="video-fundo" aria-hidden="true">
+    <video src="/background.mp4" autoplay muted loop playsinline preload="metadata"></video>
+  </div>
+
+  <header class="topo">
+    <a class="marca" href="/" aria-label="Library Box">
+      <span class="marca-icone"><img src="/logo-library-box-icon.png" alt=""></span>
+      <span>Library Box</span>
+    </a>
+
+    <nav class="menu" aria-label="Navegacao principal">
+      <a href="/">Inicio</a>
+      <a href="/reservas.html">Reservar</a>
+      <a href="/comentarios.html">Comentarios</a>
+      <a href="/contato.html">Contato</a>
+      <a href="/cadastro.html">Cadastro</a>
+      <a class="menu-destaque" href="/login" id="loginLink">Entrar</a>
+    </nav>
+  </header>
+
+  <main class="pagina-simples">
+    <section class="secao rankings-page">
+      <div class="secao-cabecalho">
+        <h1>Rankings</h1>
+        <p>Livros em destaque, avaliacoes e leitores mais ativos da biblioteca.</p>
+      </div>
+
+      <div class="rankings-grid">
+        <article class="ranking-bloco ranking-destaque revelar visivel">
+          <h2>Livros mais reservados</h2>
+          <div class="ranking-lista" id="rankingReservas">
+            <article><strong>Carregando...</strong><span>Aguarde um instante</span></article>
+          </div>
+        </article>
+
+        <article class="ranking-bloco revelar visivel">
+          <h2>Melhores avaliacoes</h2>
+          <div class="ranking-lista ranking-lista-compacta" id="rankingAvaliacoes">
+            <article><strong>Carregando...</strong><span>Aguarde um instante</span></article>
+          </div>
+        </article>
+
+        <article class="ranking-bloco revelar visivel">
+          <h2>Leitores com mais reservas</h2>
+          <div class="ranking-lista ranking-lista-compacta" id="rankingUsuarios">
+            <article><strong>Carregando...</strong><span>Aguarde um instante</span></article>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="/relatorios.js"></script>
+</body>
+</html>

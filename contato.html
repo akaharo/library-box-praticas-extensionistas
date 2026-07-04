@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Box | Contato</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Literata:opsz,wght@7..72,600;7..72,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="video-fundo" aria-hidden="true"><video src="/background.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+  <header class="topo">
+    <a class="marca" href="/"><span class="marca-icone"><img src="/logo-library-box-icon.png" alt=""></span><span>Library Box</span></a>
+    <nav class="menu">
+      <a href="/">Inicio</a>
+      <a href="/reservas.html">Reservas</a>
+      <a href="/relatorios.html">Rankings</a>
+      <a class="menu-destaque" href="/login" id="loginLink">Entrar</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero pagina-simples cadastro-page">
+      <div class="hero-texto">
+        <h1>Fale com a equipe da biblioteca</h1>
+        <p>Use este canal para enviar dúvidas, sugestões de livros ou mensagens sobre o funcionamento do sistema.</p>
+      </div>
+
+      <form class="cartao-reserva cadastro-card contato-card" id="contatoForm">
+        <h3>Contato</h3>
+        <label for="name">Nome</label>
+        <input id="name" maxlength="100" required>
+        <label for="email">E-mail</label>
+        <input id="email" type="email" maxlength="120" required>
+        <label for="subject">Assunto</label>
+        <input id="subject" maxlength="100" required>
+        <label for="message">Mensagem</label>
+        <textarea id="message" maxlength="500" required></textarea>
+        <button class="botao primario" type="submit">Enviar mensagem</button>
+        <p class="mensagem" id="contatoMensagem">Preencha os campos para enviar.</p>
+      </form>
+    </section>
+  </main>
+
+  <script src="/contato.js"></script>
+</body>
+</html>

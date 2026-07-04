@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Box | Reservas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Literata:opsz,wght@7..72,600;7..72,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="video-fundo" aria-hidden="true"><video src="/background.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+  <header class="topo">
+    <a class="marca" href="/"><span class="marca-icone"><img src="/logo-library-box-icon.png" alt=""></span><span>Library Box</span></a>
+    <nav class="menu"><a href="/">Inicio</a><a href="/comentarios.html">Comentarios</a><a href="/relatorios.html">Rankings</a><a class="menu-destaque" href="/login" id="loginLink">Entrar</a></nav>
+  </header>
+
+  <main>
+    <section class="secao pagina-lista">
+      <div class="secao-cabecalho">
+        <h2>Reserva de livros</h2>
+        <p>Selecione uma obra disponivel e confirme a solicitacao para retirada na biblioteca.</p>
+      </div>
+
+      <div class="reserva-layout">
+        <aside class="cartao-reserva reserva-confirmacao">
+          <h3>Confirmar reserva</h3>
+          <p id="reservaResumo">Nenhum livro selecionado.</p>
+          <button class="botao primario" type="button" id="confirmarReservaBtn" disabled>Confirmar reserva</button>
+          <p class="mensagem" id="reservaMensagem">Escolha um livro disponivel para continuar.</p>
+        </aside>
+
+        <div class="reserva-listas">
+          <section class="reserva-grupo">
+            <div class="secao-cabecalho compacto">
+              <h2>Disponiveis</h2>
+              <p>Livros que podem ser reservados agora.</p>
+            </div>
+            <div class="grade-livros" id="livrosDisponiveis"></div>
+          </section>
+
+          <section class="reserva-grupo">
+            <div class="secao-cabecalho compacto">
+              <h2>Reservados</h2>
+              <p>Obras que ja estao separadas ou em atendimento.</p>
+            </div>
+            <div class="grade-livros" id="livrosReservados"></div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="reservas.js"></script>
+</body>
+</html>

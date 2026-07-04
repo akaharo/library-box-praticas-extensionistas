@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Box | Biblioteca escolar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Literata:opsz,wght@7..72,600;7..72,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="video-fundo" aria-hidden="true">
+    <video src="background.mp4" autoplay muted loop playsinline preload="metadata"></video>
+  </div>
+  <div class="barra-leitura" aria-hidden="true"></div>
+
+  <header class="topo">
+    <a class="marca" href="#inicio" aria-label="Library Box">
+      <span class="marca-icone">
+        <img src="logo-library-box-icon.png" alt="">
+      </span>
+      <span>Library Box</span>
+    </a>
+
+    <button class="menu-botao" type="button" aria-label="Abrir menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="menu" aria-label="Navegação principal">
+      <a href="#acervo">Acervo</a>
+      <a href="#funciona">Retirada</a>
+      <a href="#comunidade">Mural</a>
+      <a href="/reservas.html">Reservar</a>
+      <a href="/comentarios.html">Comentários</a>
+      <a href="/relatorios.html">Rankings</a>
+      <a href="/contato.html">Contato</a>
+      <a href="/cadastro.html">Cadastro</a>
+      <a class="menu-destaque" href="/login" id="loginLink">Entrar</a>
+      <button class="menu-destaque usuario-chip escondido" type="button" id="logoutBtn">Sair</button>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="hero-texto">
+        <h1>Encontre, reserve e acompanhe leituras da biblioteca</h1>
+        <p>
+          Um espaço para descobrir livros da biblioteca, ver indicações da semana
+          e deixar a próxima leitura separada para retirada.
+        </p>
+        <div class="acoes">
+          <a class="botao primario" href="#acervo">Ver acervo</a>
+          <a class="botao secundario" href="/reservas.html">Reservar leitura</a>
+        </div>
+        <div class="bilhetes-hero" aria-label="Avisos da biblioteca">
+          <span>Hoje tem roda de leitura às 15h</span>
+          <span>Devoluções até sexta-feira</span>
+        </div>
+      </div>
+
+      <div class="painel-catalogo" aria-label="Catálogo de livros">
+        <div class="painel-topo">
+          <span></span>
+          <span></span>
+          <span></span>
+          <strong>Acervo aberto</strong>
+        </div>
+
+        <div class="busca-falsa">
+          <span>Buscar por título, autor ou gênero</span>
+          <b>⌕</b>
+        </div>
+
+        <div class="livro-grande">
+          <div class="capa capa-azul">
+            <span>Aventuras</span>
+            <strong>Mapa do Rio</strong>
+          </div>
+          <div>
+            <p class="rotulo">Mais procurado da semana</p>
+            <h2>Mapa do Rio</h2>
+            <p>Ficção juvenil para leitores que gostam de mistério e cidade.</p>
+            <div class="fila">
+              <span>3 exemplares</span>
+              <span>2 reservas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mini-estante">
+          <div class="mini-livro um"></div>
+          <div class="mini-livro dois"></div>
+          <div class="mini-livro tres"></div>
+          <div class="mini-livro quatro"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" id="acervo">
+      <div class="secao-cabecalho">
+        <h2>Destaques</h2>
+        <p>Livros em evidência no acervo da biblioteca.</p>
+      </div>
+
+      <div class="filtros" aria-label="Filtros de livros">
+        <button class="ativo" type="button" data-filtro="todos">Todos</button>
+        <button type="button" data-filtro="literatura">Literatura</button>
+        <button type="button" data-filtro="estudo">Estudo</button>
+        <button type="button" data-filtro="infantil">Infantil</button>
+      </div>
+
+      <div class="grade-livros" id="gradeLivros">
+        <article class="card-livro revelar" data-categoria="literatura" data-titulo="Casa de Vento">
+          <div class="capa capa-terracota">
+            <span>Romance</span>
+            <strong>Casa de Vento</strong>
+          </div>
+          <h3>Casa de Vento</h3>
+          <p>Literatura brasileira</p>
+          <span class="status disponivel">Disponível</span>
+          <button class="favorito" type="button" aria-label="Marcar Casa de Vento como favorito">☆</button>
+        </article>
+
+        <article class="card-livro revelar" data-categoria="estudo" data-titulo="Ciência em Casa">
+          <div class="capa capa-verde">
+            <span>Pesquisa</span>
+            <strong>Ciência em Casa</strong>
+          </div>
+          <h3>Ciência em Casa</h3>
+          <p>Experimentos e curiosidades</p>
+          <span class="status fila">1 na fila</span>
+          <button class="favorito" type="button" aria-label="Marcar Ciência em Casa como favorito">☆</button>
+        </article>
+
+        <article class="card-livro revelar" data-categoria="infantil" data-titulo="O Jardim Secreto">
+          <div class="capa capa-amarela">
+            <span>Infantil</span>
+            <strong>O Jardim Secreto</strong>
+          </div>
+          <h3>O Jardim Secreto</h3>
+          <p>Clássico adaptado</p>
+          <span class="status disponivel">Disponível</span>
+          <button class="favorito" type="button" aria-label="Marcar O Jardim Secreto como favorito">☆</button>
+        </article>
+
+        <article class="card-livro revelar" data-categoria="literatura" data-titulo="Noite de Leitura">
+          <div class="capa capa-azul">
+            <span>Contos</span>
+            <strong>Noite de Leitura</strong>
+          </div>
+          <h3>Noite de Leitura</h3>
+          <p>Contos curtos</p>
+          <span class="status reservado">Reservado</span>
+          <button class="favorito" type="button" aria-label="Marcar Noite de Leitura como favorito">☆</button>
+        </article>
+      </div>
+      <aside class="dica-curadoria revelar">
+        <strong>Curadoria da semana</strong>
+        <p>Para quem não sabe por onde começar: escolha um gênero, marque favoritos e depois reserve a obra que mais combinou com você.</p>
+      </aside>
+    </section>
+
+    <section class="secao mural-leitura" id="comunidade">
+      <div class="secao-cabecalho">
+        <h2>Mural dos leitores</h2>
+        <p>Avisos e novidades para quem acompanha a biblioteca.</p>
+      </div>
+
+      <div class="notas-mural" id="notasMural">
+        <article class="nota revelar">
+          <span>Indicação</span>
+          <p>“Pegue um livro curto se estiver voltando ao hábito de leitura.”</p>
+        </article>
+        <article class="nota revelar">
+          <span>Clube</span>
+          <p>Encontro de leitores toda quarta, no intervalo da tarde.</p>
+        </article>
+        <article class="nota revelar">
+          <span>Lembrete</span>
+          <p>Livros reservados ficam separados por até dois dias úteis.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="secao funcionamento" id="funciona">
+      <div class="secao-cabecalho">
+        <h2>Retirada</h2>
+        <p>Consulte o acervo, faça a reserva e retire no balcão da biblioteca.</p>
+      </div>
+
+      <div class="passos">
+        <article>
+          <span>01</span>
+          <h3>Veja os destaques</h3>
+          <p>Veja os livros disponíveis e escolha a próxima leitura.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Solicite a reserva</h3>
+          <p>Use a página de reservas para separar o livro.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Retire no balcão</h3>
+          <p>Passe na biblioteca e finalize a retirada.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="secao comunidade">
+      <div class="texto-comunidade">
+        <h2>Comunidade</h2>
+        <p>
+          A Library Box reúne leitores, avisos e livros em um só lugar.
+        </p>
+        <ul>
+          <li id="totalLivrosInfo">Indicações para diferentes tipos de leitores.</li>
+          <li id="totalUsuariosInfo">Consulta rápida por gênero e disponibilidade.</li>
+          <li>Reservas, favoritos e avaliações conectados ao login.</li>
+        </ul>
+      </div>
+
+      <div class="cartao-reserva" id="reserva">
+        <h3>Área do leitor</h3>
+        <p>As ações principais ficam em páginas separadas para cada fluxo ficar mais claro.</p>
+        <a class="botao primario" href="/reservas.html">Reservar livro</a>
+        <a class="botao secundario acao-card" href="/comentarios.html">Comentar e avaliar</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <strong>Library Box</strong>
+    <span>Biblioteca mais próxima dos leitores.</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
