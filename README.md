@@ -31,6 +31,7 @@ Sistema web para apoio ao gerenciamento de uma biblioteca escolar.
 - contato.html
 - docs/
   - diagramas-atualizados.md
+  - diagramas-atualizados.pdf
 - backend/
   - server.js
   - database.sql
@@ -76,4 +77,4 @@ aluno123
 
 ## Diagramas
 
-Os diagramas atualizados do projeto estao em `docs/diagramas-atualizados.md`.
+Os diagramas atualizados do projeto estao em `docs/diagramas-atualizados.md` e `docs/diagramas-atualizados.pdf`.
