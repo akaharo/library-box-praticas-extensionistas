@@ -2,6 +2,11 @@
 
 Sistema web para apoio ao gerenciamento de uma biblioteca escolar.
 
+## Integrantes
+
+- Bernardo Haro Massignani
+- Marcelo Schuermann
+
 ## Tecnologias
 
 - HTML
