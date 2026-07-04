@@ -26,6 +26,7 @@ Sistema web para apoio ao gerenciamento de uma biblioteca escolar.
 - contato.html
 - docs/
   - diagrama-biblioteca-escolar.pdf
+  - diagramas-atualizados.md
 - backend/
   - server.js
   - database.sql
@@ -68,3 +69,7 @@ aluno123
 - Comentarios e avaliacoes de livros.
 - Rankings de livros e leitores.
 - Formulario de contato.
+
+## Diagramas
+
+Os diagramas atualizados do projeto estao em `docs/diagramas-atualizados.md`.
