@@ -30,7 +30,6 @@ Sistema web para apoio ao gerenciamento de uma biblioteca escolar.
 - relatorios.html
 - contato.html
 - docs/
-  - diagrama-biblioteca-escolar.pdf
   - diagramas-atualizados.md
 - backend/
   - server.js
